@@ -6,7 +6,6 @@ from todo_app.flask_config import Config
 app = Flask(__name__)
 app.config.from_object(Config())
 
-
 @app.route('/')
 def index():
     items = get_items()
@@ -16,8 +15,12 @@ def index():
 def add_todo():
     new_todo_title = request.form.get('title')
     add_item(new_todo_title)  
-    return redirect('/')     
-
+    return redirect('/')
+    
+@app.route('/complete-item/<todo_id>' , methods=["POST"])
+def complete_item(todo_id):
+    move_item_to_done(todo_id)
+    return redirect("/")   
 
 
 
