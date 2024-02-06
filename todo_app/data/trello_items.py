@@ -2,6 +2,8 @@ import requests
 import os
 import dotenv
 
+from todo_app.item import Item
+
 
 dotenv.load_dotenv()
 
@@ -18,8 +20,8 @@ def get_items():
 
     response =requests.get ("https://trello-proxy.azure-api.net/1/boards/6575b1e0697c0c91113c2035/lists?key={}&token={}&cards=open&card_fields=id,name".format(key,token),headers= headersList)
 
-    result =response.json()
-    cards=[]
+    response_list =response.json()
+    items=[]
     for trello_list in response_list:
         for trello_card in trello_list['cards']:
             item = Item.from_trello_card(trello_card, trello_list)
@@ -28,33 +30,20 @@ def get_items():
     return items
     
 
+def add_item(title):
+    reqUrl = "https://trello-proxy.azure-api.net/1/cards"
 
- board_=os.getenv("Trello_API_KEY"),
-
- reqUrl = "https://trello-proxy.azure-api.net/1/boards/6575b1e0697c0c91113c2035/lists"
-
- query_params = {
+    query_params = {
         "key": os.getenv("TRELLO_API_KEY"),
         "token": os.getenv("TRELLO_API_TOKEN"),
-         "cards": "open" 
+        "idList": os.getenv("TRELLO_TODO_LIST_ID"),
+        "name": title
     }
 
- response = requests.get(reqUrl, params= query_params)
 
- print(response)
+    response = requests.post(reqUrl, params= query_params)
 
-
- print(response.status_code)
-
-
-print(response.text)
- response_json = response.json()
-
- cards = []
- for trello_list in response_json:
-         for card in trello_list["cards"]:
-            cards.append(card)
-
+    print(response.text)
 
 def move_item_to_done(item_id):
     
