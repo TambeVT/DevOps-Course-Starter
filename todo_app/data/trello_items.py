@@ -47,7 +47,7 @@ def add_item(title):
 
 def move_item_to_done(item_id):
     
-    reqUrl = f"https://trello-proxy.azure-api.net/1/cards"
+    reqUrl = f"https://trello-proxy.azure-api.net/1/cards/{item_id}"
 
     query_params = {
         "key": os.getenv("TRELLO_API_KEY"),
