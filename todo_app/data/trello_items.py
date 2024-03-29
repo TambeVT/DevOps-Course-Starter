@@ -23,6 +23,7 @@ def get_items():
     response_list =response.json()
     items=[]
     for trello_list in response_list:
+        print(trello_list)
         for trello_card in trello_list['cards']:
             item = Item.from_trello_card(trello_card, trello_list)
             items.append(item)
