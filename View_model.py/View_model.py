@@ -8,3 +8,21 @@ class ViewModel:
     @property
     def items(self):
         return self._items
+
+    @property
+    def Todo_items(self):
+        return []
+    
+    @property
+    def doing_items(self):
+        return []
+
+    @property
+    def done_items(self) -> list[item]:
+        output =[]
+
+        for item in self._items:
+            if item.status == "Done":
+                output.append(item)
+
+        return output
