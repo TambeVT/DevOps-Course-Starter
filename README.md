@@ -60,3 +60,10 @@ You should see output similar to the following:
  * Debugger PIN: 226-556-590
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+##Running the test suite
+To run the tests for the codebase run the following command:
+...
+poetry run pytest
+...
+(please make sure you have run 'poetry install' beforehand to install 'pytest')
