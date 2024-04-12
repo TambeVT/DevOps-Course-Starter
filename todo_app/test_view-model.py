@@ -1,12 +1,13 @@
 
-from todo_app.data.item import item
+
+from todo_app.data.item import Item
 from todo_app.data.view_model import viewmodel
 
 
 def test_done_items_property_only_shows_done_items_and_nothing_else():
     # ARRANGE
     items = [
-        item(1,"started Todo", "To Do"),
+        Item(1,"started Todo", "To Do"),
         item(2, "In progress Todo" , "Doing"),
         item(3, "Finished Todo", "Done")
     ]
