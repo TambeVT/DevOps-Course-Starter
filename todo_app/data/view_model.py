@@ -1,4 +1,4 @@
-from todo_app.data.item import item
+from todo_app.data.item import Item
 
 
 class ViewModel:
@@ -18,7 +18,7 @@ class ViewModel:
         return []
 
     @property
-    def done_items(self) -> list[item]:
+    def done_items(self) -> list[Item]:
         output =[]
 
         for item in self._items:
