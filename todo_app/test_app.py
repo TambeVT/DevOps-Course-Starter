@@ -1,6 +1,8 @@
-from dotenv import load_dotenv, find_dotenv
 import pytest
+from dotenv import load_dotenv, find_dotenv
 from todo_app import app
+import requests
+import os
 
 @pytest.fixture
 def client():
@@ -36,7 +38,7 @@ class StubResponse():
 def stub(url, params={}):
     test_board_id = os.environ.get('TRELLO_BOARD_ID')
 
-    if url == f'https://api.trello.com/1/boards/{test_board_id}/lists':
+    if f'https://trello-proxy.azure-api.net/1/boards/{test_board_id}/lists' in url:
         fake_response_data = [{
             'id': '123abc',
             'name': 'To Do',

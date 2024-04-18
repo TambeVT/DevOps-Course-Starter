@@ -10,7 +10,7 @@ class ViewModel:
         return self._items
 
     @property
-    def Todo_items(self):
+    def todo_items(self):
         return []
     
     @property

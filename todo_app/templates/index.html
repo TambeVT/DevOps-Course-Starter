@@ -17,7 +17,7 @@
     <div class="col-md-12">
       <h2>Todo items<h2>
       <ul class="list.group mb-4">
-       {% for item in view_model.Todo_items %}
+       {% for item in view_model.todo_items %}
         <li>{{ item.name}} - {{item.status}}</li>
         <form action="complete-item/{{item.id}}"method="post">
           <button>Complete</button>
@@ -33,7 +33,7 @@
         </form>
          {% endfor %}
     </ul>
-    h2> Doing items<h2>
+    <h2> Done items<h2>
       <ul class="list.group mb-4">
        {% for item in view_model.done_items %}
         <li>{{ item.name}} - {{item.status}}</li>
@@ -42,15 +42,6 @@
       </form>
        {% endfor %}
   </ul>
-  h2> Done Items<h2>
-    <ul Class="list group mb-4">
-      {% for item in items %}
-      <li> {{ item.name}} - {{ item.status}}</li>
-      <from action="complete-item/{{item.id}}"method="post">
-        <button>Complete</button>
-      </from>
-       {% endfor %}
-  </h2>
   <div>
 </div>
 
