@@ -2,7 +2,7 @@ import requests
 import os
 import dotenv
 
-from todo_app.item import Item
+from todo_app.data.item import Item
 
 
 dotenv.load_dotenv()
@@ -10,19 +10,15 @@ dotenv.load_dotenv()
 def get_items():
     key =  os.getenv("TRELLO_API_KEY")
     token =  os.getenv("TRELLO_API_TOKEN")
-    conn ="trello-proxy.azure-api.net"
+    board_id =  os.getenv("TRELLO_BOARD_ID")
 
 
-    headersList = {
-    "Accept": "*/*",
-    "User-Agent": "Thunder Client (https://www.thunderclient.com)" 
-    }
-
-    response =requests.get ("https://trello-proxy.azure-api.net/1/boards/6575b1e0697c0c91113c2035/lists?key={}&token={}&cards=open&card_fields=id,name".format(key,token),headers= headersList)
+    response =requests.get("https://trello-proxy.azure-api.net/1/boards/{}/lists?key={}&token={}&cards=open".format(board_id, key,token))
 
     response_list =response.json()
     items=[]
     for trello_list in response_list:
+        print(trello_list)
         for trello_card in trello_list['cards']:
             item = Item.from_trello_card(trello_card, trello_list)
             items.append(item)
