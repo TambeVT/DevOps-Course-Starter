@@ -9,7 +9,7 @@ The project uses poetry for Python to create an isolated environment and manage 
 ### Poetry installation (Bash)
 
 ```bash
-curl -sSL https://install.python-poetry.org | python3 -
+C
 ```
 
 ### Poetry installation (PowerShell)
