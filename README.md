@@ -9,7 +9,7 @@ The project uses poetry for Python to create an isolated environment and manage 
 ### Poetry installation (Bash)
 
 ```bash
-curl -sSL https://install.python-poetry.org | python3 -
+C
 ```
 
 ### Poetry installation (PowerShell)
@@ -67,3 +67,17 @@ To run the tests for the codebase run the following command:
 poetry run pytest
 ...
 (please make sure you have run 'poetry install' beforehand to install 'pytest')
+
+## Building and running the App via Docker
+To build the container for local development, please run
+
+`docker build --tag todo-app:dev --target development .` 
+
+To run the container for local development, please run
+
+docker run --publish 8000:5000  -it --env-file .env --mount "type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
+
+For the production container, the build and run commands are:
+---bash
+docker build --tag todo-app:pro --target production .
+docker run --publish 8000:5000  -it --env.file .env todo-app:prod
