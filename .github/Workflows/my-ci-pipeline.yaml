@@ -2,8 +2,11 @@ name: Continuous Integration
 on: 
   push:
   paths:
+  paths-ignore:
     - "README.md"
-  pull-request:
+  pull_request:
+  paths:
+  paths-ignore:
     - "README.md"
 
 jobs:
