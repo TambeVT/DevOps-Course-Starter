@@ -67,7 +67,9 @@ To run the tests for the codebase run the following command:
 poetry run pytest
 ...
 (please make sure you have run 'poetry install' beforehand to install 'pytest')
-if instead you'd like to run your test vis Docker please run thr following:
+if instead you'd like to run your test via Docker 
+please run thr following:
+---bash
  docker build --tag todo-app:test --target test .
  docker run todo'app:test
  ---
