@@ -3,3 +3,5 @@
 Dockerfile
 .git
 .vscode
+.pytest_cache
+**/__pycache__
