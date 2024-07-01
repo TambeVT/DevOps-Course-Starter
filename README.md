@@ -62,18 +62,22 @@ You should see output similar to the following:
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
-##Running the test suite
+## Running the test suite
+
 To run the tests for the codebase run the following command:
-...
+
+```
 poetry run pytest
-...
-(please make sure you have run 'poetry install' beforehand to install 'pytest')
-if instead you'd like to run your test via Docker 
+```
+
+(please make sure you have run `poetry install` beforehand to install 'pytest')
+
+If instead you'd like to run your test via Docker 
 please run thr following:
----bash
+```bash
  docker build --tag todo-app:test --target test .
- docker run todo'app:test
- ---
+ docker run todo-app:test
+ ```
 
 ## Building and running the App via Docker
 To build the container for local development, please run
