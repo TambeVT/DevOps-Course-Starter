@@ -10,6 +10,7 @@ The project uses poetry for Python to create an isolated environment and manage 
 
 ```bash
 C
+curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 ### Poetry installation (PowerShell)
@@ -61,23 +62,34 @@ You should see output similar to the following:
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
-##Running the test suite
+## Running the test suite
+
 To run the tests for the codebase run the following command:
-...
+
+```
 poetry run pytest
-...
-(please make sure you have run 'poetry install' beforehand to install 'pytest')
+```
+
+(please make sure you have run `poetry install` beforehand to install 'pytest')
+
+If instead you'd like to run your test via Docker 
+please run thr following:
+```bash
+ docker build --tag todo-app:test --target test .
+ docker run todo-app:test
+ ```
 
 ## Building and running the App via Docker
 To build the container for local development, please run
 
-`docker build --tag todo-app:dev --target development .` 
+`docker build --tag todo-app:test --target test .` 
 
 To run the container for local development, please run
 
-docker run --publish 8000:5000  -it --env-file .env --mount "type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
+docker run --publish 8000:5000  -it --env-file .env --mount 
+"type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
 
 For the production container, the build and run commands are:
 ---bash
-docker build --tag todo-app:pro --target production .
-docker run --publish 8000:5000  -it --env.file .env todo-app:prod
+docker build --tag todo-app:prod --target production .
+docker run --publish 8000:5000  -it --env-file .env todo-app:prod
