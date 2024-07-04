@@ -93,3 +93,16 @@ For the production container, the build and run commands are:
 ```bash
 docker build --tag todo-app:prod --target production .
 docker run --publish 8000:5000 -it --env-file .env todo-app:prod
+
+## Azure Hosting
+The container image that is deployed to Azure is hosted on Docker Hub at https://hub.docker.com/repository/docker/vtambe/todo-app/general
+The website itself is hosted at https://valtamappservice.azurewebsites.net/
+
+To update the website you will need to run the following commands to build and push the updated container image
+
+```bash
+docker build --tag vtambe/todo-app:prod --target production.
+docker push vtambe/todo-app:prod
+Next you will need to make a post request to the webhock link provided on the App service under the deployment centre tab and this will trigger azure to pull the updated image from Docker Hub
+
+```
