@@ -90,6 +90,6 @@ docker run --publish 8000:5000  -it --env-file .env --mount
 "type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
 
 For the production container, the build and run commands are:
----bash
+```bash
 docker build --tag todo-app:prod --target production .
-docker run --publish 8000:5000  -it --env-file .env todo-app:prod
+docker run --publish 8000:5000 -it --env-file .env todo-app:prod
