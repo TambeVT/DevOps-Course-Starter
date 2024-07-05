@@ -101,7 +101,7 @@ The website itself is hosted at https://valtamappservice.azurewebsites.net/
 To update the website you will need to run the following commands to build and push the updated container image
 
 ```bash
-docker build --tag vtambe/todo-app:prod --target production.
+docker build --tag vtambe/todo-app:prod --target production .
 docker push vtambe/todo-app:prod
 Next you will need to make a post request to the webhock link provided on the App service under the deployment centre tab and this will trigger azure to pull the updated image from Docker Hub
 
