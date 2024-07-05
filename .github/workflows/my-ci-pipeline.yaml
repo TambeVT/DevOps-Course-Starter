@@ -31,3 +31,5 @@ jobs:
       with:
         username: ${{ secrets>DOCKER HUB USERNAME }}
         password: ${{ secrets.DOCKER HUB PASSWORD }}
+       -run: docker build --tag vtambe/todo-app:prod --target production
+       -run: docker push vtambe/todo-app:prod
