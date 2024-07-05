@@ -26,3 +26,8 @@ jobs:
        steps:
          - uses: actions/checkout@v4
          - run: echoe hello deploy
+      name: Login to Docker hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets>DOCKER HUB USERNAME }}
+        password: ${{ secrets.DOCKER HUB PASSWORD }}
