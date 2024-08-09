@@ -1,14 +1,22 @@
+from bson import objectID
 import pymongo
 import os
 
-client = pymongo.MongoClient(os.getenv("MONGO_DB_CONNECTION_STRING"))
+from todo_app.data.item import Item
 
-db = client[os.getenv("MONGODB_DATABASE_NAME")]
+def get_collection():
+    client = pymongo.MongoClient(os.getenv("MONGO_DB_CONNECTION_STRING"))
 
-collection = db[os.getenv("MONGODB_COLLECTION_NAME")]
+    db = client[os.getenv("MONGODB_DATABASE_NAME")]
+
+    collection = db[os.getenv("MONGODB_COLLECTION_NAME")]
+    return collection
 
 
 def add_item(new_todo_title: str):
+    collection =get_collection(
+
+    )
     new_item ={
         "name": new_todo_title,
         "status": "To Do"
@@ -18,6 +26,7 @@ def add_item(new_todo_title: str):
     
 
 def get_items():
+    collection = get_collection()
     mongodb_documents = list(collection.find())
 
     items = []
