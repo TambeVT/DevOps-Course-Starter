@@ -29,5 +29,7 @@ for document in mongodb_documents:
     return items
 
 
-def move_item_to_done():
-    pass
+def move_item_to_done(todo_id: str):
+    collection.update_one({"_id": objectId["todo_id"]}, {"$set": {"status": "Done"}})
+
+    
