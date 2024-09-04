@@ -1,11 +1,11 @@
-from bson import objectID
+from bson import ObjectId
 import pymongo
 import os
 
 from todo_app.data.item import Item
 
 def get_collection():
-    client = pymongo.MongoClient(os.getenv("MONGO_DB_CONNECTION_STRING"))
+    client = pymongo.MongoClient(os.getenv("MONGODB_CONNECTION_STRING"))
 
     db = client[os.getenv("MONGODB_DATABASE_NAME")]
 
@@ -31,9 +31,9 @@ def get_items():
 
     items = []
 
-for document in mongodb_documents:
-    item = Item.from_mongo_document(document)
-    items.append(item)
+    for document in mongodb_documents:
+        item = Item.from_mongo_document(document)
+        items.append(item)
 
     return items
 
