@@ -14,7 +14,7 @@ def get_collection():
 
 
 def add_item(new_todo_title: str):
-    collection =get_collection(
+    collection = get_collection(
 
     )
     new_item ={
@@ -39,6 +39,7 @@ def get_items():
 
 
 def move_item_to_done(todo_id: str):
-    collection.update_one({"_id": objectId["todo_id"]}, {"$set": {"status": "Done"}})
+    collection = get_collection()
+    collection.update_one({"_id": ObjectId(todo_id)}, {"$set": {"status": "Done"}})
 
     
