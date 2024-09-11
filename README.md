@@ -35,9 +35,11 @@ $ cp .env.template .env  # (first time only)
 
 The `.env` file is used by flask to set environment variables when running `flask run`. This enables things like development mode (which also enables features like hot reloading when you make a file change). There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie.
 
-## Setting up MongoDB integration
+## Setting up MongoDB Database
+This app uses a Mungo DB Database for storing the todo items.  To access it, you will need to set up:
+A Mungo DB Account and Database. You will also need to provide a connection string for connecting to the said  database which comes from Cosmos DB in Azure. And once you have all of this, you will need to update the .env  to include all your Mungo DB  Database details.
 
-DOCUMENT HOW TO SETUP THIS APP WITH MONGODB
+
 
 ## Running the App
 
