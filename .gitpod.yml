@@ -11,5 +11,4 @@ vscode:
 
 tasks:
   - command: | 
-      cp .env.template .env
       poetry install
