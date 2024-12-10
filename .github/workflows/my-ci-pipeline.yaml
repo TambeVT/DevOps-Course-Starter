@@ -17,6 +17,8 @@ jobs:
     - uses: actions/checkout@v4
     - run: docker build --tag todo-app:test --target test .
     - run: docker run todo-app:test
+    - run: docker run --entrypoint poetry todo-app:test run safety check
+      continue-on-error: true
 
   deploy:
     name: push to Docker hub and trigger App Service Deploy
