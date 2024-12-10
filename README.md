@@ -104,3 +104,6 @@ docker push vtambe/todo-app:prod
 Next you will need to make a post request to the webhock link provided on the App service under the deployment centre tab and this will trigger azure to pull the updated image from Docker Hub
 
 ```
+## Data Encryption
+Todo items are stored in a CosmosDB database (using a MongoDB API). Data is encrypted at rest by default https://learn.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest.
+Data in is also encrypted in transit as it has https, making it secured.
